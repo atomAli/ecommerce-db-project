@@ -8,7 +8,6 @@ if (!isset($_SESSION['customer_id'])) {
 }
 
 $customer_id = $_SESSION['customer_id'];
-$address_id = $_POST['address_id'];
 $payment_method = $_POST['payment_method'];
 
 $total = 0;
@@ -18,8 +17,8 @@ foreach ($_SESSION['cart'] as $pid => $qty) {
     $total += $p['price'] * $qty;
 }
 
-mysqli_query($conn, "INSERT INTO orders (customer_id, address_id, order_date, status, total_amount) 
-                     VALUES ($customer_id, $address_id, NOW(), 'pending', $total)");
+mysqli_query($conn, "INSERT INTO orders (customer_id, order_date, status, total_amount) 
+                     VALUES ($customer_id, NOW(), 'pending', $total)");
 $order_id = mysqli_insert_id($conn);
 
 foreach ($_SESSION['cart'] as $pid => $qty) {

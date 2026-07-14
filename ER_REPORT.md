@@ -30,21 +30,9 @@ I designed a database for an online store. The system manages customers, product
 - category_id (FK)
 - created_at
 
-### Address
-- address_id (PK)
-- customer_id (FK)
-- address_line1
-- address_line2
-- city
-- state
-- zip_code
-- country
-- is_default
-
 ### Orders
 - order_id (PK)
 - customer_id (FK)
-- address_id (FK)
 - order_date
 - status
 - total_amount
@@ -82,7 +70,6 @@ I designed a database for an online store. The system manages customers, product
 
 ## 3. Relationships
 
-- Customer has many Addresses (1:N)
 - Customer has many Orders (1:N)
 - Customer has many Reviews (1:N)
 - Category has many Products (1:N)
@@ -102,7 +89,6 @@ A table is in 3NF if it is in 2NF and no non-key column depends on another non-k
 - Customer: all columns depend on customer_id. OK
 - Category: all columns depend on category_id. OK
 - Product: all columns depend on product_id. OK
-- Address: all columns depend on address_id. OK
 - Orders: all columns depend on order_id. OK
 - OrderItem: all columns depend on order_item_id. OK
 - Payment: all columns depend on payment_id. OK
@@ -119,7 +105,6 @@ A table is in BCNF if for every dependency X -> Y, X is a superkey.
 - Customer: candidate keys are customer_id and email. OK
 - Category: only candidate key is category_id. OK
 - Product: only candidate key is product_id. OK
-- Address: only candidate key is address_id. OK
 - Orders: only candidate key is order_id. OK
 - OrderItem: only candidate key is order_item_id. OK
 - Payment: candidate keys are payment_id and order_id. OK

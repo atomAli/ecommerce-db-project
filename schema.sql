@@ -28,28 +28,13 @@ CREATE TABLE product (
     FOREIGN KEY (category_id) REFERENCES category(category_id)
 );
 
-CREATE TABLE address (
-    address_id INT AUTO_INCREMENT PRIMARY KEY,
-    customer_id INT,
-    address_line1 VARCHAR(255),
-    address_line2 VARCHAR(255),
-    city VARCHAR(100),
-    state VARCHAR(100),
-    zip_code VARCHAR(20),
-    country VARCHAR(100),
-    is_default BOOLEAN DEFAULT FALSE,
-    FOREIGN KEY (customer_id) REFERENCES customer(customer_id)
-);
-
 CREATE TABLE orders (
     order_id INT AUTO_INCREMENT PRIMARY KEY,
     customer_id INT,
-    address_id INT,
     order_date DATETIME,
     status VARCHAR(20),
     total_amount DECIMAL(12,2),
-    FOREIGN KEY (customer_id) REFERENCES customer(customer_id),
-    FOREIGN KEY (address_id) REFERENCES address(address_id)
+    FOREIGN KEY (customer_id) REFERENCES customer(customer_id)
 );
 
 CREATE TABLE order_item (

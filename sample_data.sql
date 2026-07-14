@@ -19,12 +19,8 @@ INSERT INTO customer (first_name, last_name, email, phone, password_hash, regist
 ('John', 'Doe', 'john@example.com', '1234567890', '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', NOW()),
 ('Jane', 'Smith', 'jane@example.com', '0987654321', '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', NOW());
 
-INSERT INTO address (customer_id, address_line1, city, country, is_default) VALUES
-(1, '123 Main St', 'New York', 'USA', TRUE),
-(2, '456 Oak Ave', 'Los Angeles', 'USA', TRUE);
-
-INSERT INTO orders (customer_id, address_id, order_date, status, total_amount) VALUES
-(1, 1, NOW(), 'pending', 1049.98);
+INSERT INTO orders (customer_id, order_date, status, total_amount) VALUES
+(1, NOW(), 'pending', 1049.98);
 
 INSERT INTO order_item (order_id, product_id, quantity, unit_price) VALUES
 (1, 1, 1, 999.99),
