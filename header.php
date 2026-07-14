@@ -7,7 +7,6 @@
 <a href="index.php">Home</a> |
 <a href="products.php">Products</a> |
 <a href="cart.php">Cart</a> |
-<a href="orders.php">Orders</a> |
 <?php if (isset($_SESSION['customer_id'])): ?>
     <?php echo $_SESSION['name']; ?> |
     <a href="logout.php">Logout</a>

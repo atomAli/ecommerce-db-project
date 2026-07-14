@@ -37,5 +37,5 @@ unset($_SESSION['cart']);
 
 echo "<h2>Order #$order_id Placed!</h2>";
 echo "<p>Total: $$total</p>";
-echo "<a href='orders.php'>View Orders</a>";
+echo "<a href='index.php'>Back to Home</a>";
 ?>
