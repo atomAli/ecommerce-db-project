@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>E-R Diagram - E-commerce Database</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; background: #f5f5f5; }
+        h1 { text-align: center; color: #333; }
+        .diagram { background: white; padding: 20px; border: 1px solid #ccc; margin: 20px auto; max-width: 1000px; }
+        svg { width: 100%; height: auto; }
+        .entity { fill: #fff; stroke: #333; stroke-width: 2; }
+        .entity-name { font-weight: bold; font-size: 14px; }
+        .attribute { font-size: 11px; }
+        .pk { font-weight: bold; text-decoration: underline; }
+        .relation { stroke: #333; stroke-width: 2; fill: none; }
+        .cardinality { font-size: 12px; font-weight: bold; }
+    </style>
+</head>
+<body>
+    <h1>E-R Diagram - E-commerce Database</h1>
+    <div class="diagram">
+        <svg viewBox="0 0 900 600">
+            <!-- Customer Entity -->
+            <rect x="50" y="200" width="120" height="200" class="entity"/>
+            <text x="110" y="220" text-anchor="middle" class="entity-name">Customer</text>
+            <line x1="50" y1="230" x2="170" y2="230" stroke="#333"/>
+            <text x="60" y="248" class="pk">customer_id (PK)</text>
+            <text x="60" y="265" class="attribute">first_name</text>
+            <text x="60" y="280" class="attribute">last_name</text>
+            <text x="60" y="295" class="attribute">email (UNIQUE)</text>
+            <text x="60" y="310" class="attribute">phone</text>
+            <text x="60" y="325" class="attribute">password_hash</text>
+            <text x="60" y="340" class="attribute">registration_date</text>
+
+            <!-- Category Entity -->
+            <rect x="600" y="200" width="120" height="100" class="entity"/>
+            <text x="660" y="220" text-anchor="middle" class="entity-name">Category</text>
+            <line x1="600" y1="230" x2="720" y2="230" stroke="#333"/>
+            <text x="610" y="248" class="pk">category_id (PK)</text>
+            <text x="610" y="265" class="attribute">name</text>
+            <text x="610" y="280" class="attribute">description</text>
+
+            <!-- Product Entity -->
+            <rect x="600" y="350" width="120" height="170" class="entity"/>
+            <text x="660" y="370" text-anchor="middle" class="entity-name">Product</text>
+            <line x1="600" y1="380" x2="720" y2="380" stroke="#333"/>
+            <text x="610" y="398" class="pk">product_id (PK)</text>
+            <text x="610" y="415" class="attribute">name</text>
+            <text x="610" y="430" class="attribute">description</text>
+            <text x="610" y="445" class="attribute">price</text>
+            <text x="610" y="460" class="attribute">stock_quantity</text>
+            <text x="610" y="475" class="attribute">category_id (FK)</text>
+            <text x="610" y="490" class="attribute">created_at</text>
+
+            <!-- Address Entity -->
+            <rect x="250" y="50" width="120" height="170" class="entity"/>
+            <text x="310" y="70" text-anchor="middle" class="entity-name">Address</text>
+            <line x1="250" y1="80" x2="370" y2="80" stroke="#333"/>
+            <text x="260" y="98" class="pk">address_id (PK)</text>
+            <text x="260" y="115" class="attribute">customer_id (FK)</text>
+            <text x="260" y="130" class="attribute">address_line1</text>
+            <text x="260" y="145" class="attribute">city</text>
+            <text x="260" y="160" class="attribute">country</text>
+            <text x="260" y="175" class="attribute">is_default</text>
+
+            <!-- Orders Entity -->
+            <rect x="350" y="250" width="120" height="150" class="entity"/>
+            <text x="410" y="270" text-anchor="middle" class="entity-name">Orders</text>
+            <line x1="350" y1="280" x2="470" y2="280" stroke="#333"/>
+            <text x="360" y="298" class="pk">order_id (PK)</text>
+            <text x="360" y="315" class="attribute">customer_id (FK)</text>
+            <text x="360" y="330" class="attribute">address_id (FK)</text>
+            <text x="360" y="345" class="attribute">order_date</text>
+            <text x="360" y="360" class="attribute">status</text>
+            <text x="360" y="375" class="attribute">total_amount</text>
+
+            <!-- OrderItem Entity -->
+            <rect x="350" y="450" width="120" height="120" class="entity"/>
+            <text x="410" y="470" text-anchor="middle" class="entity-name">OrderItem</text>
+            <line x1="350" y1="480" x2="470" y2="480" stroke="#333"/>
+            <text x="360" y="498" class="pk">order_item_id (PK)</text>
+            <text x="360" y="515" class="attribute">order_id (FK)</text>
+            <text x="360" y="530" class="attribute">product_id (FK)</text>
+            <text x="360" y="545" class="attribute">quantity</text>
+            <text x="360" y="560" class="attribute">unit_price</text>
+
+            <!-- Payment Entity -->
+            <rect x="550" y="250" width="120" height="130" class="entity"/>
+            <text x="610" y="270" text-anchor="middle" class="entity-name">Payment</text>
+            <line x1="550" y1="280" x2="670" y2="280" stroke="#333"/>
+            <text x="560" y="298" class="pk">payment_id (PK)</text>
+            <text x="560" y="315" class="attribute">order_id (FK, UNIQUE)</text>
+            <text x="560" y="330" class="attribute">payment_date</text>
+            <text x="560" y="345" class="attribute">amount</text>
+            <text x="560" y="360" class="attribute">payment_method</text>
+            <text x="560" y="375" class="attribute">status</text>
+
+            <!-- Review Entity -->
+            <rect x="750" y="400" width="120" height="130" class="entity"/>
+            <text x="810" y="420" text-anchor="middle" class="entity-name">Review</text>
+            <line x1="750" y1="430" x2="870" y2="430" stroke="#333"/>
+            <text x="760" y="448" class="pk">review_id (PK)</text>
+            <text x="760" y="465" class="attribute">product_id (FK)</text>
+            <text x="760" y="480" class="attribute">customer_id (FK)</text>
+            <text x="760" y="495" class="attribute">rating</text>
+            <text x="760" y="510" class="attribute">comment</text>
+            <text x="760" y="525" class="attribute">review_date</text>
+
+            <!-- Relations -->
+            <!-- Customer to Address (1:N) -->
+            <line x1="110" y1="200" x2="310" y2="170" class="relation"/>
+            <text x="200" y="185" class="cardinality">1 : N</text>
+
+            <!-- Customer to Orders (1:N) -->
+            <line x1="170" y1="300" x2="350" y2="310" class="relation"/>
+            <text x="250" y="315" class="cardinality">1 : N</text>
+
+            <!-- Customer to Review (1:N) -->
+            <line x1="170" y1="350" x2="750" y2="460" class="relation" stroke-dasharray="5,5"/>
+            <text x="450" y="410" class="cardinality">1 : N</text>
+
+            <!-- Category to Product (1:N) -->
+            <line x1="660" y1="300" x2="660" y2="350" class="relation"/>
+            <text x="670" y="335" class="cardinality">1 : N</text>
+
+            <!-- Orders to OrderItem (1:N) -->
+            <line x1="410" y1="400" x2="410" y2="450" class="relation"/>
+            <text x="420" y="435" class="cardinality">1 : N</text>
+
+            <!-- Product to OrderItem (1:N) -->
+            <line x1="600" y1="450" x2="470" y2="480" class="relation"/>
+            <text x="530" y="475" class="cardinality">1 : N</text>
+
+            <!-- Product to Review (1:N) -->
+            <line x1="720" y1="450" x2="750" y2="450" class="relation"/>
+            <text x="735" y="445" class="cardinality">1 : N</text>
+
+            <!-- Orders to Payment (1:1) -->
+            <line x1="470" y1="320" x2="550" y2="310" class="relation"/>
+            <text x="500" y="325" class="cardinality">1 : 1</text>
+
+            <!-- Legend -->
+            <rect x="50" y="520" width="200" height="60" fill="white" stroke="#333"/>
+            <text x="60" y="540" font-weight="bold">Legend:</text>
+            <text x="60" y="555">Rectangle = Entity</text>
+            <text x="60" y="570">1:N = One-to-Many</text>
+            <text x="170" y="555">1:1 = One-to-One</text>
+        </svg>
+    </div>
+</body>
+</html>
