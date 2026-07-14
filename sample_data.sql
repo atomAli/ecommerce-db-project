@@ -15,9 +15,9 @@ INSERT INTO product (name, description, price, stock_quantity, category_id, crea
 ('Jacket', 'Winter jacket', 89.99, 60, 2, NOW()),
 ('Sneakers', 'Running sneakers', 69.99, 100, 2, NOW());
 
-INSERT INTO customer (first_name, last_name, email, phone, password_hash, registration_date) VALUES
-('John', 'Doe', 'john@example.com', '1234567890', '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', NOW()),
-('Jane', 'Smith', 'jane@example.com', '0987654321', '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', NOW());
+INSERT INTO customer (name, email, password_hash, registration_date) VALUES
+('John', 'john@example.com', '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', NOW()),
+('Jane', 'jane@example.com', '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', NOW());
 
 INSERT INTO orders (customer_id, order_date, status, total_amount) VALUES
 (1, NOW(), 'pending', 1049.98);

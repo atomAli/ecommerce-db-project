@@ -12,7 +12,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $user = mysqli_fetch_assoc($result);
         if (password_verify($password, $user['password_hash'])) {
             $_SESSION['customer_id'] = $user['customer_id'];
-            $_SESSION['name'] = $user['first_name'];
+            $_SESSION['name'] = $user['name'];
             echo "<p>Login successful!</p>";
             echo "<meta http-equiv='refresh' content='1;url=index.php'>";
         } else {

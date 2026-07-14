@@ -9,10 +9,8 @@ I designed a database for an online store. The system manages customers, product
 
 ### Customer
 - customer_id (PK)
-- first_name
-- last_name
+- name
 - email (UNIQUE)
-- phone
 - password_hash
 - registration_date
 

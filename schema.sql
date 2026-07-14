@@ -3,10 +3,8 @@ USE ecommerce_db;
 
 CREATE TABLE customer (
     customer_id INT AUTO_INCREMENT PRIMARY KEY,
-    first_name VARCHAR(50),
-    last_name VARCHAR(50),
+    name VARCHAR(50),
     email VARCHAR(100) UNIQUE,
-    phone VARCHAR(20),
     password_hash VARCHAR(255),
     registration_date DATETIME
 );
