@@ -55,17 +55,6 @@ CREATE TABLE payment (
     FOREIGN KEY (order_id) REFERENCES orders(order_id)
 );
 
-CREATE TABLE review (
-    review_id INT AUTO_INCREMENT PRIMARY KEY,
-    product_id INT,
-    customer_id INT,
-    rating INT,
-    comment TEXT,
-    review_date DATETIME,
-    FOREIGN KEY (product_id) REFERENCES product(product_id),
-    FOREIGN KEY (customer_id) REFERENCES customer(customer_id)
-);
-
 CREATE TABLE tag (
     tag_id INT AUTO_INCREMENT PRIMARY KEY,
     name VARCHAR(50)

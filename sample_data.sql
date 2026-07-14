@@ -29,10 +29,6 @@ INSERT INTO order_item (order_id, product_id, quantity, unit_price) VALUES
 INSERT INTO payment (order_id, payment_date, amount, payment_method, status) VALUES
 (1, NOW(), 1049.98, 'credit_card', 'completed');
 
-INSERT INTO review (product_id, customer_id, rating, comment, review_date) VALUES
-(1, 1, 5, 'Great laptop!', NOW()),
-(2, 2, 4, 'Good phone', NOW());
-
 INSERT INTO tag (name) VALUES
 ('new'),
 ('sale'),

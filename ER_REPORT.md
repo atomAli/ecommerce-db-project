@@ -3,7 +3,7 @@
 
 ## 1. Introduction
 
-I designed a database for an online store. The system manages customers, products, orders, payments, reviews, and tags.
+I designed a database for an online store. The system manages customers, products, orders, payments, and tags.
 
 ## 2. Entities
 
@@ -50,14 +50,6 @@ I designed a database for an online store. The system manages customers, product
 - payment_method
 - status
 
-### Review
-- review_id (PK)
-- product_id (FK)
-- customer_id (FK)
-- rating
-- comment
-- review_date
-
 ### Tag
 - tag_id (PK)
 - name
@@ -69,11 +61,9 @@ I designed a database for an online store. The system manages customers, product
 ## 3. Relationships
 
 - Customer has many Orders (1:N)
-- Customer has many Reviews (1:N)
 - Category has many Products (1:N)
 - Order has many OrderItems (1:N)
 - Product has many OrderItems (1:N)
-- Product has many Reviews (1:N)
 - Order has one Payment (1:1)
 - Product has many Tags (N:M) via Product_Tag
 - Tag has many Products (N:M) via Product_Tag
@@ -90,7 +80,6 @@ A table is in 3NF if it is in 2NF and no non-key column depends on another non-k
 - Orders: all columns depend on order_id. OK
 - OrderItem: all columns depend on order_item_id. OK
 - Payment: all columns depend on payment_id. OK
-- Review: all columns depend on review_id. OK
 - Tag: all columns depend on tag_id. OK
 - Product_Tag: all columns are part of the composite primary key. OK
 
@@ -106,7 +95,6 @@ A table is in BCNF if for every dependency X -> Y, X is a superkey.
 - Orders: only candidate key is order_id. OK
 - OrderItem: only candidate key is order_item_id. OK
 - Payment: candidate keys are payment_id and order_id. OK
-- Review: only candidate key is review_id. OK
 - Tag: only candidate key is tag_id. OK
 - Product_Tag: composite primary key (product_id, tag_id) is the only candidate key. OK
 

@@ -18,16 +18,6 @@ $row = mysqli_fetch_assoc(mysqli_query($conn, "SELECT * FROM product WHERE produ
     </form>
 <?php endif; ?>
 
-<h3>Reviews</h3>
-<?php
-$reviews = mysqli_query($conn, "SELECT r.*, c.name as name 
-                                FROM review r JOIN customer c ON r.customer_id = c.customer_id 
-                                WHERE r.product_id = $id");
-while ($rev = mysqli_fetch_assoc($reviews)) {
-    echo "<p><b>" . $rev['name'] . "</b> - " . $rev['rating'] . "/5<br>" . $rev['comment'] . "</p>";
-}
-?>
-
 <p><a href="products.php">Back to Products</a></p>
 
 <?php include 'footer.php'; ?>
