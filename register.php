@@ -13,7 +13,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         echo "<p style='color:red;'>Email already exists!</p>";
     } else {
         $hash = password_hash($password, PASSWORD_DEFAULT);
-        $sql = "INSERT INTO customer (first_name, last_name, email, password_hash) VALUES ('$name', '', '$email', '$hash')";
+        $sql = "INSERT INTO customer (first_name, last_name, email, password_hash, registration_date) 
+                VALUES ('$name', '', '$email', '$hash', NOW())";
         if (mysqli_query($conn, $sql)) {
             echo "<p>Registered! <a href='login.php'>Login now</a></p>";
         }

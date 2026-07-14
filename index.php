@@ -1,9 +1,6 @@
 <?php include 'header.php'; ?>
 
 <h2>Welcome</h2>
-<p>Welcome to our online store!</p>
-
-<h3>Latest Products</h3>
 
 <?php
 $result = mysqli_query($conn, "SELECT * FROM product ORDER BY product_id DESC LIMIT 4");

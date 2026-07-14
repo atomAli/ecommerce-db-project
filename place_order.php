@@ -18,8 +18,8 @@ foreach ($_SESSION['cart'] as $pid => $qty) {
     $total += $p['price'] * $qty;
 }
 
-mysqli_query($conn, "INSERT INTO orders (customer_id, address_id, total_amount, status) 
-                     VALUES ($customer_id, $address_id, $total, 'pending')");
+mysqli_query($conn, "INSERT INTO orders (customer_id, address_id, order_date, status, total_amount) 
+                     VALUES ($customer_id, $address_id, NOW(), 'pending', $total)");
 $order_id = mysqli_insert_id($conn);
 
 foreach ($_SESSION['cart'] as $pid => $qty) {
@@ -30,8 +30,8 @@ foreach ($_SESSION['cart'] as $pid => $qty) {
     mysqli_query($conn, "UPDATE product SET stock_quantity = stock_quantity - $qty WHERE product_id = $pid");
 }
 
-mysqli_query($conn, "INSERT INTO payment (order_id, amount, payment_method, status) 
-                     VALUES ($order_id, $total, '$payment_method', 'completed')");
+mysqli_query($conn, "INSERT INTO payment (order_id, payment_date, amount, payment_method, status) 
+                     VALUES ($order_id, NOW(), $total, '$payment_method', 'completed')");
 
 unset($_SESSION['cart']);
 
