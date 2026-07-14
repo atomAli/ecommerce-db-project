@@ -36,3 +36,23 @@ INSERT INTO payment (order_id, payment_date, amount, payment_method, status) VAL
 INSERT INTO review (product_id, customer_id, rating, comment, review_date) VALUES
 (1, 1, 5, 'Great laptop!', NOW()),
 (2, 2, 4, 'Good phone', NOW());
+
+INSERT INTO tag (name) VALUES
+('new'),
+('sale'),
+('popular'),
+('wireless'),
+('portable');
+
+INSERT INTO product_tag (product_id, tag_id) VALUES
+(1, 3),
+(2, 1),
+(2, 3),
+(3, 1),
+(3, 5),
+(4, 4),
+(5, 4),
+(6, 2),
+(7, 3),
+(8, 2),
+(9, 3);

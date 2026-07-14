@@ -5,7 +5,7 @@
     <style>
         body { font-family: Arial, sans-serif; margin: 20px; background: #f5f5f5; }
         h1 { text-align: center; color: #333; }
-        .diagram { background: white; padding: 20px; border: 1px solid #ccc; margin: 20px auto; max-width: 1000px; }
+        .diagram { background: white; padding: 20px; border: 1px solid #ccc; margin: 20px auto; max-width: 1100px; }
         svg { width: 100%; height: auto; }
         .entity { fill: #fff; stroke: #333; stroke-width: 2; }
         .entity-name { font-weight: bold; font-size: 14px; }
@@ -13,12 +13,13 @@
         .pk { font-weight: bold; text-decoration: underline; }
         .relation { stroke: #333; stroke-width: 2; fill: none; }
         .cardinality { font-size: 12px; font-weight: bold; }
+        .nm { stroke: #0066cc; stroke-width: 3; }
     </style>
 </head>
 <body>
     <h1>E-R Diagram - E-commerce Database</h1>
     <div class="diagram">
-        <svg viewBox="0 0 900 600">
+        <svg viewBox="0 0 1050 650">
             <!-- Customer Entity -->
             <rect x="50" y="200" width="120" height="200" class="entity"/>
             <text x="110" y="220" text-anchor="middle" class="entity-name">Customer</text>
@@ -32,27 +33,27 @@
             <text x="60" y="340" class="attribute">registration_date</text>
 
             <!-- Category Entity -->
-            <rect x="600" y="200" width="120" height="100" class="entity"/>
-            <text x="660" y="220" text-anchor="middle" class="entity-name">Category</text>
-            <line x1="600" y1="230" x2="720" y2="230" stroke="#333"/>
-            <text x="610" y="248" class="pk">category_id (PK)</text>
-            <text x="610" y="265" class="attribute">name</text>
-            <text x="610" y="280" class="attribute">description</text>
+            <rect x="600" y="100" width="120" height="100" class="entity"/>
+            <text x="660" y="120" text-anchor="middle" class="entity-name">Category</text>
+            <line x1="600" y1="130" x2="720" y2="130" stroke="#333"/>
+            <text x="610" y="148" class="pk">category_id (PK)</text>
+            <text x="610" y="165" class="attribute">name</text>
+            <text x="610" y="180" class="attribute">description</text>
 
             <!-- Product Entity -->
-            <rect x="600" y="350" width="120" height="170" class="entity"/>
-            <text x="660" y="370" text-anchor="middle" class="entity-name">Product</text>
-            <line x1="600" y1="380" x2="720" y2="380" stroke="#333"/>
-            <text x="610" y="398" class="pk">product_id (PK)</text>
-            <text x="610" y="415" class="attribute">name</text>
-            <text x="610" y="430" class="attribute">description</text>
-            <text x="610" y="445" class="attribute">price</text>
-            <text x="610" y="460" class="attribute">stock_quantity</text>
-            <text x="610" y="475" class="attribute">category_id (FK)</text>
-            <text x="610" y="490" class="attribute">created_at</text>
+            <rect x="600" y="250" width="120" height="170" class="entity"/>
+            <text x="660" y="270" text-anchor="middle" class="entity-name">Product</text>
+            <line x1="600" y1="280" x2="720" y2="280" stroke="#333"/>
+            <text x="610" y="298" class="pk">product_id (PK)</text>
+            <text x="610" y="315" class="attribute">name</text>
+            <text x="610" y="330" class="attribute">description</text>
+            <text x="610" y="345" class="attribute">price</text>
+            <text x="610" y="360" class="attribute">stock_quantity</text>
+            <text x="610" y="375" class="attribute">category_id (FK)</text>
+            <text x="610" y="390" class="attribute">created_at</text>
 
             <!-- Address Entity -->
-            <rect x="250" y="50" width="120" height="170" class="entity"/>
+            <rect x="250" y="50" width="120" height="150" class="entity"/>
             <text x="310" y="70" text-anchor="middle" class="entity-name">Address</text>
             <line x1="250" y1="80" x2="370" y2="80" stroke="#333"/>
             <text x="260" y="98" class="pk">address_id (PK)</text>
@@ -95,15 +96,29 @@
             <text x="560" y="375" class="attribute">status</text>
 
             <!-- Review Entity -->
-            <rect x="750" y="400" width="120" height="130" class="entity"/>
-            <text x="810" y="420" text-anchor="middle" class="entity-name">Review</text>
-            <line x1="750" y1="430" x2="870" y2="430" stroke="#333"/>
-            <text x="760" y="448" class="pk">review_id (PK)</text>
-            <text x="760" y="465" class="attribute">product_id (FK)</text>
-            <text x="760" y="480" class="attribute">customer_id (FK)</text>
-            <text x="760" y="495" class="attribute">rating</text>
-            <text x="760" y="510" class="attribute">comment</text>
-            <text x="760" y="525" class="attribute">review_date</text>
+            <rect x="750" y="350" width="120" height="130" class="entity"/>
+            <text x="810" y="370" text-anchor="middle" class="entity-name">Review</text>
+            <line x1="750" y1="380" x2="870" y2="380" stroke="#333"/>
+            <text x="760" y="398" class="pk">review_id (PK)</text>
+            <text x="760" y="415" class="attribute">product_id (FK)</text>
+            <text x="760" y="430" class="attribute">customer_id (FK)</text>
+            <text x="760" y="445" class="attribute">rating</text>
+            <text x="760" y="460" class="attribute">comment</text>
+            <text x="760" y="475" class="attribute">review_date</text>
+
+            <!-- Tag Entity -->
+            <rect x="850" y="100" width="100" height="80" class="entity"/>
+            <text x="900" y="120" text-anchor="middle" class="entity-name">Tag</text>
+            <line x1="850" y1="130" x2="950" y2="130" stroke="#333"/>
+            <text x="860" y="148" class="pk">tag_id (PK)</text>
+            <text x="860" y="165" class="attribute">name</text>
+
+            <!-- Product_Tag Entity (Junction) -->
+            <rect x="800" y="220" width="130" height="70" class="entity" fill="#e6f2ff"/>
+            <text x="865" y="240" text-anchor="middle" class="entity-name">Product_Tag</text>
+            <line x1="800" y1="250" x2="930" y2="250" stroke="#333"/>
+            <text x="810" y="268" class="pk">product_id (PK, FK)</text>
+            <text x="810" y="283" class="pk">tag_id (PK, FK)</text>
 
             <!-- Relations -->
             <!-- Customer to Address (1:N) -->
@@ -115,35 +130,44 @@
             <text x="250" y="315" class="cardinality">1 : N</text>
 
             <!-- Customer to Review (1:N) -->
-            <line x1="170" y1="350" x2="750" y2="460" class="relation" stroke-dasharray="5,5"/>
-            <text x="450" y="410" class="cardinality">1 : N</text>
+            <line x1="170" y1="350" x2="750" y2="400" class="relation" stroke-dasharray="5,5"/>
+            <text x="450" y="380" class="cardinality">1 : N</text>
 
             <!-- Category to Product (1:N) -->
-            <line x1="660" y1="300" x2="660" y2="350" class="relation"/>
-            <text x="670" y="335" class="cardinality">1 : N</text>
+            <line x1="660" y1="200" x2="660" y2="250" class="relation"/>
+            <text x="670" y="235" class="cardinality">1 : N</text>
 
             <!-- Orders to OrderItem (1:N) -->
             <line x1="410" y1="400" x2="410" y2="450" class="relation"/>
             <text x="420" y="435" class="cardinality">1 : N</text>
 
             <!-- Product to OrderItem (1:N) -->
-            <line x1="600" y1="450" x2="470" y2="480" class="relation"/>
-            <text x="530" y="475" class="cardinality">1 : N</text>
+            <line x1="600" y1="370" x2="470" y2="480" class="relation"/>
+            <text x="530" y="430" class="cardinality">1 : N</text>
 
             <!-- Product to Review (1:N) -->
-            <line x1="720" y1="450" x2="750" y2="450" class="relation"/>
-            <text x="735" y="445" class="cardinality">1 : N</text>
+            <line x1="720" y1="370" x2="750" y2="390" class="relation"/>
+            <text x="735" y="385" class="cardinality">1 : N</text>
 
             <!-- Orders to Payment (1:1) -->
             <line x1="470" y1="320" x2="550" y2="310" class="relation"/>
             <text x="500" y="325" class="cardinality">1 : 1</text>
 
+            <!-- Product to Product_Tag (1:N) -->
+            <line x1="720" y1="310" x2="800" y2="260" class="relation nm"/>
+            <text x="755" y="280" class="cardinality">N : M</text>
+
+            <!-- Tag to Product_Tag (1:N) -->
+            <line x1="865" y1="180" x2="865" y2="220" class="relation nm"/>
+            <text x="875" y="205" class="cardinality">N : M</text>
+
             <!-- Legend -->
-            <rect x="50" y="520" width="200" height="60" fill="white" stroke="#333"/>
-            <text x="60" y="540" font-weight="bold">Legend:</text>
-            <text x="60" y="555">Rectangle = Entity</text>
-            <text x="60" y="570">1:N = One-to-Many</text>
-            <text x="170" y="555">1:1 = One-to-One</text>
+            <rect x="50" y="570" width="300" height="50" fill="white" stroke="#333"/>
+            <text x="60" y="590" font-weight="bold">Legend:</text>
+            <text x="60" y="605">Rectangle = Entity</text>
+            <text x="180" y="590">1:N = One-to-Many</text>
+            <text x="180" y="605">1:1 = One-to-One</text>
+            <text x="300" y="590" fill="#0066cc" font-weight="bold">N:M = Many-to-Many</text>
         </svg>
     </div>
 </body>

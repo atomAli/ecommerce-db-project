@@ -82,3 +82,16 @@ CREATE TABLE review (
     FOREIGN KEY (product_id) REFERENCES product(product_id),
     FOREIGN KEY (customer_id) REFERENCES customer(customer_id)
 );
+
+CREATE TABLE tag (
+    tag_id INT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(50)
+);
+
+CREATE TABLE product_tag (
+    product_id INT,
+    tag_id INT,
+    PRIMARY KEY (product_id, tag_id),
+    FOREIGN KEY (product_id) REFERENCES product(product_id),
+    FOREIGN KEY (tag_id) REFERENCES tag(tag_id)
+);
