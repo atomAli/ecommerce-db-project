@@ -15,4 +15,5 @@ while ($row = mysqli_fetch_assoc($result)) {
 
 <p><a href='products.php'>See All Products</a></p>
 
-<?php include 'footer.php'; ?>
+</body>
+</html>

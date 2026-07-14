@@ -34,5 +34,6 @@ if (!isset($_SESSION['cart']) || empty($_SESSION['cart'])) {
 }
 echo " | <a href='products.php'>Continue Shopping</a>";
 
-include 'footer.php';
 ?>
+</body>
+</html>

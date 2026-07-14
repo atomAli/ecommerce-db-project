@@ -31,4 +31,5 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
 <p>Already have account? <a href="login.php">Login</a></p>
 
-<?php include 'footer.php'; ?>
+</body>
+</html>

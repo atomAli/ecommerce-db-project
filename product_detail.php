@@ -20,4 +20,5 @@ $row = mysqli_fetch_assoc(mysqli_query($conn, "SELECT * FROM product WHERE produ
 
 <p><a href="products.php">Back to Products</a></p>
 
-<?php include 'footer.php'; ?>
+</body>
+</html>

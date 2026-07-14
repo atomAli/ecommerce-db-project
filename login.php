@@ -32,4 +32,5 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
 <p>No account? <a href="register.php">Register</a></p>
 
-<?php include 'footer.php'; ?>
+</body>
+</html>

@@ -38,6 +38,8 @@ while ($row = mysqli_fetch_assoc($result)) {
     }
     echo "</div>";
 }
+
 ?>
 
-<?php include 'footer.php'; ?>
+</body>
+</html>
