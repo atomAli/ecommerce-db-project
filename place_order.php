@@ -8,7 +8,6 @@ if (!isset($_SESSION['customer_id'])) {
 }
 
 $customer_id = $_SESSION['customer_id'];
-$payment_method = $_POST['payment_method'];
 
 $total = 0;
 foreach ($_SESSION['cart'] as $pid => $qty) {
@@ -18,7 +17,7 @@ foreach ($_SESSION['cart'] as $pid => $qty) {
 }
 
 mysqli_query($conn, "INSERT INTO orders (customer_id, order_date, status, total_amount) 
-                     VALUES ($customer_id, NOW(), 'pending', $total)");
+                     VALUES ($customer_id, NOW(), 'completed', $total)");
 $order_id = mysqli_insert_id($conn);
 
 foreach ($_SESSION['cart'] as $pid => $qty) {
@@ -29,12 +28,14 @@ foreach ($_SESSION['cart'] as $pid => $qty) {
     mysqli_query($conn, "UPDATE product SET stock_quantity = stock_quantity - $qty WHERE product_id = $pid");
 }
 
-mysqli_query($conn, "INSERT INTO payment (order_id, payment_date, amount, payment_method, status) 
-                     VALUES ($order_id, NOW(), $total, '$payment_method', 'completed')");
-
 unset($_SESSION['cart']);
-
-echo "<h2>Order #$order_id Placed!</h2>";
-echo "<p>Total: $$total</p>";
-echo "<a href='index.php'>Back to Home</a>";
 ?>
+<!DOCTYPE html>
+<html>
+<head><title>Success</title></head>
+<body>
+<h2>Purchase Successful!</h2>
+<p>Thank you for your order.</p>
+<p><a href="index.php">Back to Home</a></p>
+</body>
+</html>

@@ -29,13 +29,7 @@ if (!isset($_SESSION['cart']) || empty($_SESSION['cart'])) {
     echo "</table>";
     
     echo "<br><form method='POST' action='place_order.php'>";
-    echo "<h3>Payment Method</h3>";
-    echo "<select name='payment_method'>";
-    echo "<option value='credit_card'>Credit Card</option>";
-    echo "<option value='cash_on_delivery'>Cash on Delivery</option>";
-    echo "</select>";
-    echo "<br><br>";
-    echo "<input type='submit' value='Place Order'>";
+    echo "<input type='submit' value='Buy Now'>";
     echo "</form>";
 }
 echo " | <a href='products.php'>Continue Shopping</a>";
